@@ -8,7 +8,7 @@ library(BHC)
 parser = ArgumentParser()
 parser$add_argument('file', nargs=1, help='CSV with gene expression, first column gene names, first row time points')
 parser$add_argument('--Pool', dest='pool', type='integer', default=1, help='Number of threads for BHC parallelisation. Default: 1')
-parser$add_argument('--Mode', dest='mode', default='mutinomial', help='Mode of operation (multinomial/time-course). Default: multinomial')
+parser$add_argument('--Mode', dest='mode', default='multinomial', help='Mode of operation (multinomial/time-course). Default: multinomial')
 parser$add_argument('--MakeHeatmap', dest='heatmap', action='store_true', help='Flag. If specified, a heatmap of the resulting clustering will be produced')
 args = parser$parse_args()
 
