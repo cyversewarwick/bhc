@@ -18,14 +18,13 @@ genes = rownames(data)
 samples = colnames(data)
 data = data.matrix(data)
 
-#data discretisation
-percentiles = FindOptimalBinning(data, genes, transposeData=TRUE, verbose=TRUE)
-discreteData = DiscretiseData(t(data), percentiles=percentiles)
-discreteData = t(discreteData)
-
 #BHC runs proper
 if (args$mode == 'multinomial')
 {
+	#data discretisation
+	percentiles = FindOptimalBinning(data, genes, transposeData=TRUE, verbose=TRUE)
+	discreteData = DiscretiseData(t(data), percentiles=percentiles)
+	discreteData = t(discreteData)
 	hc = bhc(discreteData, genes, dataType=args$mode, numThreads=args$pool, verbose=TRUE)
 	if (args$heatmap)
 	{
@@ -35,18 +34,20 @@ if (args$mode == 'multinomial')
 		discreteData2 = t(discreteData2)
 		hc2 = bhc(discreteData2, samples, dataType='multinomial', numThreads=args$pool, verbose=TRUE)
 		png('heatmap.png')
-		heatmap(data, Colv=hc2, Rowv=hc, scale="none", col=brewer.pal(11,'RdBu'))
+		heatmap(discreteData, Colv=hc2, Rowv=hc, scale="none", col=brewer.pal(11,'RdBu'))
 		dev.off()
 	}
 } else {
+	#standardise data
+	standardisedData = (data-mean(data))/sd(data)
 	#get them time points as time points
 	samples = as.numeric(samples)
 	#clustering proper
-	hc = bhc(discreteData, genes, timePoints=samples, dataType=args$mode, numThreads=args$pool, verbose=TRUE)
+	hc = bhc(standardisedData, genes, timePoints=samples, dataType=args$mode, numThreads=args$pool, verbose=TRUE)
 	if (args$heatmap)
 	{
 		png('heatmap.png')
-		heatmap(data, Colv=NA, Rowv=hc, scale="none", col=brewer.pal(11,'RdBu'))
+		heatmap(standardisedData, Colv=NA, Rowv=hc, scale="none", col=brewer.pal(11,'RdBu'))
 		dev.off()
 	}
 }

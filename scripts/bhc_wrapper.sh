@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 
 #call BHC proper, passing all the arguments
 Rscript /scripts/bhc.R ${@:1}
