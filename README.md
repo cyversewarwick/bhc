@@ -54,5 +54,9 @@ A folder featuring the clusters reformatted into input formats accepted by BiNGO
 
 If the app was instructed to produce a heatmap, then an additional heatmap image will be generated. The expression data provided on input is discretised by the script, and this is reflected on the heatmap - red means the expression value got put in the low expression bin, white is the middle expression bin, while blue is the high expression bin. If the data is a collection of static measurements, the samples are also clustered for heatmap purposes, but this clustering is not exported in any form.
 
+### `FullOutput.tar`
+
+The complete output of the analysis, archived into a single file for ease of downloading to your computer.
+
 [heard2005]: http://www.pnas.org/content/102/47/16939.short
 [cooke2011]: http://bmcbioinformatics.biomedcentral.com/articles/10.1186/1471-2105-12-399
