@@ -15,5 +15,9 @@ COPY scripts /scripts
 #R-side setup
 RUN Rscript /scripts/setup.R
 
+#set up analysis crash text file
+RUN apt-get -y install git
+RUN git clone https://github.com/cyversewarwick/analysis_crash.git
+
 #that's it, ready to use
 ENTRYPOINT ["bash", "/scripts/bhc_tarwrapper.sh"]
