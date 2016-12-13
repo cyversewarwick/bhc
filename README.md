@@ -24,13 +24,13 @@ For details, consult [Cooke et al., 2011][cooke2011].
 
 ## Test Run
 
-If you want to get a feel for how BHC operates and what the output looks like without using your own data, you can find a demonstration input file at `cyverseuk/bhc_testdata/botrytis17.csv` under Community Data. Switch the Run Mode field to squared exponential or cubic spline as desired, as this is a time course dataset.
+If you want to get a feel for how BHC operates and what the output looks like without using your own data, you can find a demonstration input file at `iplantcollaborative/example_data/cyverseuk/bhc_testdata/botrytis17.csv` under Community Data. Switch the Run Mode field to squared exponential or cubic spline as desired, as this is a time course dataset.
 
 ## Input in Detail
 
 ### Expression CSV
 
-**Mandatory input.** The data you're going to analyse. The first column is to be gene identifiers, while the first row is to contain information on the samples (if the dataset is comprised of multiple static measurements) or time points (if the dataset is a time course). In case formatting reference is needed, consult `cyverseuk/bhc_testdata/botrytis17.csv` under Community Data for a time course demonstration file.
+**Mandatory input.** The data you're going to analyse. The first column is to be gene identifiers, while the first row is to contain information on the samples (if the dataset is comprised of multiple static measurements) or time points (if the dataset is a time course). In case formatting reference is needed, consult `iplantcollaborative/example_data/cyverseuk/bhc_testdata/botrytis17.csv` under Community Data for a time course demonstration file.
 
 ### Run Mode
 
